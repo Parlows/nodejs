@@ -14,8 +14,11 @@ function querySearch() {
     // Get search text
     queryText = document.getElementById('searchBar').value;
 
+    // Get encoder
+    let encoderName = document.getElementById('encoder').value;
+
     // Url
-    url = `http://localhost:3000/query/milvus?text=${queryText}`
+    url = `http://localhost:3000/query/milvus?text=${queryText}&encoder=${encoderName}`
 
     try {
         fetch(url)
