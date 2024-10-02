@@ -42,7 +42,7 @@ router.get('/qdrant', (req, res) => {
             // Callback for when all the data is recieved
             embRes.on('end', () => {
                 try {
-                    console.log("Sending embedding")
+                    // console.log("Sending embedding")
 
                     // Data to be sent in the POST request body
                     const postData = JSON.stringify({
@@ -79,7 +79,7 @@ router.get('/qdrant', (req, res) => {
                             resultsArray = []
                             
                             results.result.points.forEach(element => {
-                                console.log('Hola')
+                                // console.log('Hola')
                                 resultsArray.push({
                                     video: element.payload.video,
                                     start_frame: element.payload.start_frame,
@@ -122,7 +122,7 @@ router.get('/milvus', (req, res) => {
     // Choose options depending on the encoder selected by client
     let encoderName = ''
     let collectionName = ''
-    console.log(`Encoder sent by client: ${encoderQuery}`)
+    // console.log(`Encoder sent by client: ${encoderQuery}`)
     switch (String(encoderQuery)) {
         case 'CLIP Centroid':
             encoderName = 'clip';
@@ -214,9 +214,9 @@ router.get('/milvus', (req, res) => {
                     // Process the complete response once all chunks are received
                     databaseRes.on('end', () => {
                     try {
-                        console.log('Processing Milvus Response..')
+                        // console.log('Processing Milvus Response..')
                         const results = JSON.parse(databaseData);
-                        console.log(results);
+                        // console.log(results);
                         resultsArray = []
                         
                         results.data.forEach(element => {
